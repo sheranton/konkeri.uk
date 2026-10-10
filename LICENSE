@@ -1,0 +1,29 @@
+Copyright (c) 2026 sheranton. All rights reserved.
+
+This repository contains the source code, text, design and assets of the
+website at https://konkeri.uk (together, "the Software").
+
+The Software is proprietary. The copyright holder, sheranton, is the only
+person permitted to use it. No licence or other right is granted to anyone
+else to use, copy, modify, merge, publish, distribute, sublicense, sell, host,
+deploy, or create derivative works of the Software, in whole or in part,
+whether for commercial or non-commercial purposes.
+
+The Software is published on GitHub so that it can be read. GitHub's Terms of
+Service let other GitHub users view a public repository and fork it within
+GitHub; that is the only use this notice tolerates, and it gives no right to
+use, deploy or distribute the Software, or any copy or fork of it, anywhere
+else.
+
+Third-party components the Software depends on, such as the npm packages
+listed in package.json and the fonts they provide (Martian Mono and IBM Plex
+Sans, both under the SIL Open Font License 1.1), remain under their own
+licences and are not covered by this notice.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE.
+
+To ask for permission to use any part of the Software, open an issue at
+https://github.com/sheranton/konkeri.uk.

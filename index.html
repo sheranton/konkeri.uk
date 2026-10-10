@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en" data-zone="0">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>konkeri · binary analysis, Windows &amp; Linux internals</title>
+	<meta name="description" content="konkeri builds small, sharp tools that recover structure from stripped binaries: function boundaries, class hierarchies, vtables, and what changed between two builds. Rust, C++, C and Python.">
+	<meta name="color-scheme" content="light dark">
+	<meta name="theme-color" content="#f4efe9" media="(prefers-color-scheme: light)">
+	<meta name="theme-color" content="#100c0c" media="(prefers-color-scheme: dark)">
+	<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+	<link rel="canonical" href="https://konkeri.uk/">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://konkeri.uk/">
+	<meta property="og:title" content="konkeri · binary analysis, Windows & Linux internals">
+	<meta property="og:description" content="Small, sharp tools that recover structure from stripped binaries.">
+	<meta property="og:image" content="https://konkeri.uk/og.png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta name="twitter:card" content="summary_large_image">
+	<script src="/theme.js"></script>
+	<script type="module" src="/src/main.ts"></script>
+</head>
+<body>
+	<a class="skip" href="#main">Skip to content</a>
+
+	<header class="nav">
+		<a class="brand" href="#top" aria-label="konkeri, back to top">
+			<svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3H9V9H3V21H9V15H15V21H21V9H15V3H21"/></svg>
+			<span>konkeri</span>
+		</a>
+		<nav class="nav-links" aria-label="Sections">
+			<a href="#about"><span>01</span>About</a>
+			<a href="#tools"><span>02</span>Tools</a>
+			<a href="#releases"><span>04</span>Releases</a>
+			<a href="#contact"><span>06</span>Contact</a>
+		</nav>
+		<div class="theme" role="group" aria-label="Colour theme">
+			<button type="button" data-theme-set="paper" aria-pressed="false">Paper</button>
+			<button type="button" data-theme-set="ink" aria-pressed="false">Ink</button>
+		</div>
+		<a class="nav-gh" href="https://github.com/sheranton" rel="me">GitHub <span aria-hidden="true">↗</span></a>
+	</header>
+
+	<main id="main">
+		<!-- ============================================================ header -->
+		<section class="sec hero" id="top" data-sec="ELF header" data-label="Header">
+			<!-- The real first 448 bytes of unwind-map's x86_64-pie test fixture: an ELF header and program headers. -->
+			<pre class="hexbg" aria-hidden="true">00000000  <b>7f 45 4c 46</b> 02 01 01 00  00 00 00 00 00 00 00 00  |.ELF............|
+00000010  03 00 3e 00 01 00 00 00  60 14 00 00 00 00 00 00  |..&gt;.....`.......|
+00000020  40 00 00 00 00 00 00 00  c8 0a 00 00 00 00 00 00  |@...............|
+00000030  00 00 00 00 40 00 38 00  08 00 40 00 10 00 0e 00  |....@.8...@.....|
+00000040  06 00 00 00 04 00 00 00  40 00 00 00 00 00 00 00  |........@.......|
+00000050  40 00 00 00 00 00 00 00  40 00 00 00 00 00 00 00  |@.......@.......|
+00000060  c0 01 00 00 00 00 00 00  c0 01 00 00 00 00 00 00  |................|
+00000070  08 00 00 00 00 00 00 00  01 00 00 00 04 00 00 00  |................|
+00000080  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+00000090  00 00 00 00 00 00 00 00  28 04 00 00 00 00 00 00  |........(.......|
+000000a0  28 04 00 00 00 00 00 00  00 10 00 00 00 00 00 00  |(...............|
+000000b0  01 00 00 00 05 00 00 00  30 04 00 00 00 00 00 00  |........0.......|
+000000c0  30 14 00 00 00 00 00 00  30 14 00 00 00 00 00 00  |0.......0.......|
+000000d0  9b 02 00 00 00 00 00 00  9b 02 00 00 00 00 00 00  |................|
+000000e0  00 10 00 00 00 00 00 00  01 00 00 00 06 00 00 00  |................|
+000000f0  d0 06 00 00 00 00 00 00  d0 26 00 00 00 00 00 00  |.........&amp;......|
+00000100  d0 26 00 00 00 00 00 00  00 01 00 00 00 00 00 00  |.&amp;..............|
+00000110  30 09 00 00 00 00 00 00  00 10 00 00 00 00 00 00  |0...............|
+00000120  02 00 00 00 06 00 00 00  d0 06 00 00 00 00 00 00  |................|
+00000130  d0 26 00 00 00 00 00 00  d0 26 00 00 00 00 00 00  |.&amp;.......&amp;......|
+00000140  d0 00 00 00 00 00 00 00  d0 00 00 00 00 00 00 00  |................|
+00000150  08 00 00 00 00 00 00 00  52 e5 74 64 04 00 00 00  |........R.td....|
+00000160  d0 06 00 00 00 00 00 00  d0 26 00 00 00 00 00 00  |.........&amp;......|
+00000170  d0 26 00 00 00 00 00 00  00 01 00 00 00 00 00 00  |.&amp;..............|
+00000180  30 09 00 00 00 00 00 00  01 00 00 00 00 00 00 00  |0...............|
+00000190  50 e5 74 64 04 00 00 00  d8 02 00 00 00 00 00 00  |P.td............|
+000001a0  d8 02 00 00 00 00 00 00  d8 02 00 00 00 00 00 00  |................|
+000001b0  4c 00 00 00 00 00 00 00  4c 00 00 00 00 00 00 00  |L.......L.......|</pre>
+			<div class="gutter" aria-hidden="true"><span class="addr">0x000000</span><span class="sname">e_ident</span><span class="meta">7f 45 4c 46</span></div>
+			<div class="sec-main">
+				<p class="kicker"><i aria-hidden="true"></i>Binary analysis · Windows &amp; Linux internals</p>
+				<h1 class="name" aria-label="konkeri">
+					<span class="ch" aria-hidden="true"><b>k</b><i>6b</i></span><span class="ch" aria-hidden="true"><b>o</b><i>6f</i></span><span class="ch" aria-hidden="true"><b>n</b><i>6e</i></span><span class="ch" aria-hidden="true"><b>k</b><i>6b</i></span><span class="ch" aria-hidden="true"><b>e</b><i>65</i></span><span class="ch" aria-hidden="true"><b>r</b><i>72</i></span><span class="ch" aria-hidden="true"><b>i</b><i>69</i></span>
+				</h1>
+				<div class="hero-grid">
+					<div class="hero-copy">
+						<p class="lede">I build small, sharp tools that recover structure from stripped binaries: function boundaries, class hierarchies, vtables, and what changed between two builds.</p>
+						<p class="langs" aria-label="Languages"><span>Rust</span><span>C++</span><span>C</span><span>Python</span></p>
+						<p class="cta">
+							<a class="btn btn-solid" href="#tools">Browse the tools <span aria-hidden="true">↓</span></a>
+							<a class="btn" href="https://github.com/sheranton" rel="me">github.com/sheranton <span aria-hidden="true">↗</span></a>
+						</p>
+						<p class="latest" id="latest" hidden></p>
+					</div>
+					<figure class="fig" id="fig1">
+						<div class="crop"><div class="plate fig-plate" id="fig-plate"><noscript><img src="/fig-unwind-map.svg" alt="Hilbert-curve map of a stripped binary's executable code, one coloured trace per recovered function" width="128" height="128"></noscript></div></div>
+						<figcaption>
+							<span class="fig-no">Fig. 1</span>
+							<span>A stripped 406 KiB Linux binary, mapped by <a href="#tool-unwind-map">unwind-map</a>. Code runs along a Hilbert curve; each trace is one recovered function.</span>
+							<output class="readout" id="fig-readout">578 functions · 91.9% covered · hover a trace</output>
+						</figcaption>
+					</figure>
+				</div>
+
+				<div class="toc">
+					<div class="toc-head">
+						<h2 class="label">Section headers</h2>
+						<p>This page, laid out the way <code>readelf -S</code> shows a binary.</p>
+					</div>
+					<table class="shdr">
+						<thead><tr><th scope="col">[Nr]</th><th scope="col">Name</th><th scope="col">Contents</th><th scope="col" class="num">Offset</th><th scope="col" class="num hide-sm">Size</th><th scope="col" class="hide-sm">Flg</th></tr></thead>
+						<tbody>
+							<tr data-for="about"><td>[ 1]</td><td><a href="#about">.comment</a></td><td>About: who I am and what I work on</td><td class="num off">–</td><td class="num size hide-sm">–</td><td class="hide-sm">MS</td></tr>
+							<tr data-for="tools"><td>[ 2]</td><td><a href="#tools">.text</a></td><td>Tools: <span id="toc-tools">6</span> open-source tools, live from GitHub</td><td class="num off">–</td><td class="num size hide-sm">–</td><td class="hide-sm">AX</td></tr>
+							<tr data-for="toolbox"><td>[ 3]</td><td><a href="#toolbox">.rodata</a></td><td>Toolbox: languages, platforms and formats</td><td class="num off">–</td><td class="num size hide-sm">–</td><td class="hide-sm">A</td></tr>
+							<tr data-for="releases"><td>[ 4]</td><td><a href="#releases">.gnu.version</a></td><td>Releases: <span id="toc-releases">10</span> tagged releases</td><td class="num off">–</td><td class="num size hide-sm">–</td><td class="hide-sm">A</td></tr>
+							<tr data-for="method"><td>[ 5]</td><td><a href="#method">.note</a></td><td>Method: how I build and test</td><td class="num off">–</td><td class="num size hide-sm">–</td><td class="hide-sm">A</td></tr>
+							<tr data-for="contact"><td>[ 6]</td><td><a href="#contact">.dynamic</a></td><td>Contact: where to find me</td><td class="num off">–</td><td class="num size hide-sm">–</td><td class="hide-sm">WA</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============================================================ about -->
+		<section class="sec" id="about" data-sec=".comment" data-label="About">
+			<div class="gutter" aria-hidden="true"><span class="addr">0x000000</span><span class="sname">.comment</span><span class="meta">MS · <span class="size">0x0</span></span></div>
+			<div class="sec-main">
+				<h2 class="title"><span class="idx">01</span>About</h2>
+				<div class="about">
+					<div class="prose">
+						<p class="big">I'm <strong>konkeri</strong>, an independent researcher working on systems programming and binary analysis across Windows and Linux.</p>
+						<p>Most of what I build is small, focused tooling that makes the layer between source code and the running process visible: how compilers lay out objects and emit metadata, how linkers assemble a binary, how loaders map it into memory, and how debuggers and unwinders read it back.</p>
+					</div>
+					<blockquote class="thesis">
+						<p>The metadata a compiler <em>has</em> to leave in a binary, such as RTTI, vtables, unwind tables and import tables, survives stripping. It often says more about a program's structure than the symbol table did.</p>
+						<footer class="label">Working thesis</footer>
+					</blockquote>
+				</div>
+				<dl class="focus">
+					<div><dt>Windows x64</dt><dd>PE/COFF layout, the MSVC C++ ABI, RTTI and class hierarchy recovery, vtables, imports and exports.</dd></div>
+					<div><dt>Linux</dt><dd>ELF, the System V AMD64 ABI, DWARF call frame information and <code>.eh_frame</code>, program headers and the loader.</dd></div>
+					<div><dt>Tooling</dt><dd>Static analysis that recovers structure from stripped binaries, built to sit alongside Ghidra, GDB, x64dbg and WinDbg.</dd></div>
+					<div><dt>Languages</dt><dd>C++ for Windows tooling, Rust for cross-platform CLIs, C for the lowest layers, Python for analysis scripts and test harnesses.</dd></div>
+				</dl>
+			</div>
+		</section>
+
+		<!-- ============================================================ tools -->
+		<section class="sec" id="tools" data-sec=".text" data-label="Tools">
+			<div class="gutter" aria-hidden="true"><span class="addr">0x000000</span><span class="sname">.text</span><span class="meta">AX · <span class="size">0x0</span></span></div>
+			<div class="sec-main">
+				<h2 class="title"><span class="idx">02</span>Tools</h2>
+				<p class="sec-lede">Every tool is open source, has zero third-party dependencies, and is tested in CI on Windows, Linux and macOS. This section reads live from GitHub.</p>
+
+				<article class="feature" id="tool-unwind-map">
+					<div class="feature-copy">
+						<p class="label"><i class="sq tc-unwind-map" aria-hidden="true"></i>Flagship · Rust</p>
+						<h3><a href="https://github.com/sheranton/unwind-map">unwind-map</a></h3>
+						<p class="feature-desc" id="feature-desc">Recover function boundaries from stripped Linux ELF binaries using the .eh_frame unwind tables that strip can't remove.</p>
+						<p>It finds every function that has unwind info, with no false starts, and its output feeds straight back into <code>objcopy</code> to give a stripped binary its symbols again.</p>
+						<dl class="spec">
+							<div><dt>Input</dt><dd>Stripped ELF binaries</dd></div>
+							<div><dt>Architectures</dt><dd>x86-64 · x86 · AArch64</dd></div>
+							<div><dt>Output</dt><dd>Function table · objcopy symbols · SVG maps (<a href="#fig1">Fig. 1</a>)</dd></div>
+							<div><dt>Dependencies</dt><dd>0</dd></div>
+						</dl>
+						<p class="feature-meta" id="feature-meta"></p>
+						<p class="cta"><a class="btn" href="https://github.com/sheranton/unwind-map">Source on GitHub <span aria-hidden="true">↗</span></a></p>
+					</div>
+					<figure class="listing">
+						<div class="crop"><pre class="plate out" id="out-unwind-map" tabindex="0" aria-label="unwind-map output"></pre></div>
+						<figcaption><span class="fig-no">Fig. 2</span> A real run: map the functions, then hand them to objcopy and nm.</figcaption>
+					</figure>
+				</article>
+
+				<div class="kit">
+					<div class="kit-head">
+						<h3 id="kit-title">The rest of the toolkit</h3>
+						<p id="kit-sub">C++17 tools for Windows PE files and MSVC binaries.</p>
+					</div>
+					<div class="kit-grid">
+						<div class="kit-list" id="kit-list" role="tablist" aria-orientation="vertical" aria-labelledby="kit-title">
+							<noscript>
+								<ul class="fallback">
+									<li><a href="https://github.com/sheranton/pe-walker">pe-walker</a>: inspect the structure of a PE file</li>
+									<li><a href="https://github.com/sheranton/pe-diff">pe-diff</a>: structural diff of two PE files</li>
+									<li><a href="https://github.com/sheranton/rtti-dump">rtti-dump</a>: recover class hierarchies from MSVC RTTI</li>
+									<li><a href="https://github.com/sheranton/vtable-dump">vtable-dump</a>: find vtables and their slots</li>
+									<li><a href="https://github.com/sheranton/pattern-scan">pattern-scan</a>: IDA-style signature scanning</li>
+								</ul>
+							</noscript>
+						</div>
+						<div class="kit-panel" id="kit-panel" role="tabpanel" aria-live="polite"></div>
+					</div>
+					<p class="source" id="source-note"></p>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============================================================ toolbox -->
+		<section class="sec" id="toolbox" data-sec=".rodata" data-label="Toolbox">
+			<div class="gutter" aria-hidden="true"><span class="addr">0x000000</span><span class="sname">.rodata</span><span class="meta">A · <span class="size">0x0</span></span></div>
+			<div class="sec-main">
+				<h2 class="title"><span class="idx">03</span>Toolbox</h2>
+				<dl class="consts">
+					<div><dt>Languages</dt><dd><span>Rust</span><span>C++17/20</span><span>C</span><span>Python</span></dd></div>
+					<div><dt>Platforms</dt><dd><span>Windows</span><span>Linux</span></dd></div>
+					<div><dt>Build</dt><dd><span>CMake</span><span>Cargo</span><span>MSVC</span><span>MinGW-w64</span><span>GCC</span><span>Clang / LLD</span></dd></div>
+					<div><dt>Analysis</dt><dd><span>Ghidra</span><span>x64dbg</span><span>WinDbg</span><span>GDB</span><span>readelf / objdump</span></dd></div>
+					<div><dt>Formats &amp; ABIs</dt><dd><span>PE/COFF</span><span>ELF</span><span>DWARF CFI</span><span>MSVC C++ ABI</span><span>System V AMD64</span><span>Microsoft x64</span></dd></div>
+				</dl>
+			</div>
+		</section>
+
+		<!-- ============================================================ releases -->
+		<section class="sec" id="releases" data-sec=".gnu.version" data-label="Releases">
+			<div class="gutter" aria-hidden="true"><span class="addr">0x000000</span><span class="sname">.gnu.version</span><span class="meta">A · <span class="size">0x0</span></span></div>
+			<div class="sec-main">
+				<h2 class="title"><span class="idx">04</span>Releases</h2>
+				<p class="sec-lede">Every tagged release across the toolkit, newest first.</p>
+				<ol class="vers" id="timeline"></ol>
+			</div>
+		</section>
+
+		<!-- ============================================================ method -->
+		<section class="sec" id="method" data-sec=".note" data-label="Method">
+			<div class="gutter" aria-hidden="true"><span class="addr">0x000000</span><span class="sname">.note</span><span class="meta">A · <span class="size">0x0</span></span></div>
+			<div class="sec-main">
+				<h2 class="title"><span class="idx">05</span>Method</h2>
+				<ol class="notes">
+					<li><p class="label">Note 01</p><h3>Lab-first</h3><p>Everything is built and tested on my own machines, against my own target binaries.</p></li>
+					<li><p class="label">Note 02</p><h3>Verified, not eyeballed</h3><p>Golden-file tests against real binaries, cross-checked with independent decoders such as readelf and llvm-readobj.</p></li>
+					<li><p class="label">Note 03</p><h3>Small and auditable</h3><p>Focused codebases with zero third-party dependencies, so the whole tool fits in your head.</p></li>
+					<li><p class="label">Note 04</p><h3>Documented internals</h3><p>Every README explains the format being parsed, with diagrams built from real data.</p></li>
+				</ol>
+			</div>
+		</section>
+
+		<!-- ============================================================ contact -->
+		<section class="sec contact" id="contact" data-sec=".dynamic" data-label="Contact">
+			<div class="gutter" aria-hidden="true"><span class="addr">0x000000</span><span class="sname">.dynamic</span><span class="meta">WA · <span class="size">0x0</span></span></div>
+			<div class="sec-main">
+				<h2 class="title"><span class="idx">06</span>Contact</h2>
+				<p class="contact-lede">The best way to reach me is on GitHub: open an issue on any repository, or follow along there.</p>
+				<a class="biglink" href="https://github.com/sheranton" rel="me">github.com/sheranton<span aria-hidden="true">↗</span></a>
+				<pre class="dyn" aria-label="readelf -d style summary of the links above"><span class="dim">  Tag        Type       Name/Value</span>
+ 0x00000001 (NEEDED)   Shared library: [<a href="https://github.com/sheranton">github.com/sheranton</a>]
+ 0x0000000e (SONAME)   Library soname: [konkeri.uk]</pre>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<span class="eof">EOF</span>
+		<span>konkeri.uk · built <span id="build">2026</span> · served from Cloudflare's edge</span>
+		<span>© <span id="year">2026</span> konkeri</span>
+	</footer>
+
+	<aside class="minimap" id="minimap" aria-hidden="true">
+		<svg id="mm" viewBox="0 0 128 128"></svg>
+		<p><span id="mm-sec">ELF header</span><span id="mm-off">0x000000</span></p>
+	</aside>
+</body>
+</html>

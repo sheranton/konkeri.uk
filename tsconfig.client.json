@@ -1,0 +1,26 @@
+{
+	"compilerOptions": {
+		"target": "es2024",
+		"lib": [
+			"es2024",
+			"dom",
+			"dom.iterable"
+		],
+		"module": "preserve",
+		"moduleResolution": "bundler",
+		"types": [],
+		"strict": true,
+		"noEmit": true,
+		"allowImportingTsExtensions": true,
+		"isolatedModules": true,
+		"verbatimModuleSyntax": true,
+		"skipLibCheck": true
+	},
+	"include": [
+		"src/main.ts",
+		"src/hilbert.ts",
+		"src/outputs.ts",
+		"src/types.ts",
+		"src/vite-env.d.ts"
+	]
+}

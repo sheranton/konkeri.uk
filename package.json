@@ -1,0 +1,28 @@
+{
+	"name": "konkeri-site",
+	"private": true,
+	"license": "UNLICENSED",
+	"author": "sheranton",
+	"homepage": "https://konkeri.uk",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sheranton/konkeri.uk.git"
+	},
+	"type": "module",
+	"scripts": {
+		"dev": "cf dev",
+		"build": "cf build",
+		"preview": "vite preview --port 4173 --strictPort",
+		"deploy": "cf deploy",
+		"typecheck": "cf workers types && tsc && tsc -p tsconfig.client.json",
+		"snapshot": "node scripts/snapshot.mjs"
+	},
+	"devDependencies": {
+		"@cloudflare/vite-plugin": "beta",
+		"@fontsource-variable/ibm-plex-sans": "^5.3.0",
+		"@fontsource-variable/martian-mono": "^5.3.0",
+		"cf": "^1.0.0-beta.14",
+		"typescript": "^7.0.2",
+		"vite": "^8.3.0"
+	}
+}

@@ -1,0 +1,202 @@
+{
+	"user": "sheranton",
+	"fetchedAt": "2026-10-10T08:24:43.915Z",
+	"source": "snapshot",
+	"repos": [
+		{
+			"name": "pattern-scan",
+			"description": "Single-header C++17 library for IDA-style byte signature scanning. Header-only, no dependencies.",
+			"language": "C++",
+			"stars": 0,
+			"topics": [
+				"binary-analysis",
+				"cpp",
+				"cpp17",
+				"header-only",
+				"ida-pattern",
+				"pattern-matching",
+				"reverse-engineering",
+				"signature-scanning"
+			],
+			"pushed": "2026-10-10T08:24:01Z",
+			"url": "https://github.com/sheranton/pattern-scan",
+			"releases": [
+				{
+					"tag": "v1.1.0",
+					"name": "pattern-scan v1.1.0",
+					"date": "2026-10-10T05:25:55Z",
+					"url": "https://github.com/sheranton/pattern-scan/releases/tag/v1.1.0",
+					"summary": "The patscan command-line tool."
+				},
+				{
+					"tag": "v1.0.0",
+					"name": "pattern-scan v1.0.0",
+					"date": "2026-10-10T01:33:11Z",
+					"url": "https://github.com/sheranton/pattern-scan/releases/tag/v1.0.0",
+					"summary": "First tagged release. The single header is attached below."
+				}
+			]
+		},
+		{
+			"name": "vtable-dump",
+			"description": "x64 Windows vtable locator — finds class virtual function tables via MSVC Complete Object Locator back-references. Pairs with rtti-dump.",
+			"language": "C++",
+			"stars": 0,
+			"topics": [
+				"binary-analysis",
+				"cpp",
+				"cpp17",
+				"msvc",
+				"pe-format",
+				"reverse-engineering",
+				"rtti",
+				"vtable",
+				"windows"
+			],
+			"pushed": "2026-10-10T08:24:00Z",
+			"url": "https://github.com/sheranton/vtable-dump",
+			"releases": [
+				{
+					"tag": "v1.1.0",
+					"name": "vtable-dump v1.1.0",
+					"date": "2026-10-10T05:25:52Z",
+					"url": "https://github.com/sheranton/vtable-dump/releases/tag/v1.1.0",
+					"summary": "Readable names and a visual README."
+				},
+				{
+					"tag": "v1.0.0",
+					"name": "vtable-dump v1.0.0",
+					"date": "2026-10-10T01:33:05Z",
+					"url": "https://github.com/sheranton/vtable-dump/releases/tag/v1.0.0",
+					"summary": "First tagged release, with prebuilt binaries for Windows x64, Linux x64 (statically linked) and macOS arm64."
+				}
+			]
+		},
+		{
+			"name": "rtti-dump",
+			"description": "MSVC x64 RTTI extractor. Recovers class hierarchies from stripped Windows binaries.",
+			"language": "C++",
+			"stars": 0,
+			"topics": [
+				"binary-analysis",
+				"class-hierarchy",
+				"cpp",
+				"cpp17",
+				"msvc",
+				"pe-format",
+				"reverse-engineering",
+				"rtti",
+				"windows"
+			],
+			"pushed": "2026-10-10T08:23:58Z",
+			"url": "https://github.com/sheranton/rtti-dump",
+			"releases": [
+				{
+					"tag": "v1.1.0",
+					"name": "rtti-dump v1.1.0",
+					"date": "2026-10-10T05:25:51Z",
+					"url": "https://github.com/sheranton/rtti-dump/releases/tag/v1.1.0",
+					"summary": "New views of the class hierarchy."
+				},
+				{
+					"tag": "v1.0.0",
+					"name": "rtti-dump v1.0.0",
+					"date": "2026-10-10T01:33:03Z",
+					"url": "https://github.com/sheranton/rtti-dump/releases/tag/v1.0.0",
+					"summary": "First tagged release, with prebuilt binaries for Windows x64, Linux x64 (statically linked) and macOS arm64."
+				}
+			]
+		},
+		{
+			"name": "pe-diff",
+			"description": "Structural diff tool for Portable Executable files — compares headers, sections, imports, exports between two .exe or .dll binaries. Pairs with pe-walker.",
+			"language": "C++",
+			"stars": 0,
+			"topics": [
+				"binary-analysis",
+				"cli",
+				"cpp",
+				"cpp17",
+				"diff",
+				"pe-format",
+				"portable-executable",
+				"reverse-engineering",
+				"windows"
+			],
+			"pushed": "2026-10-10T08:23:56Z",
+			"url": "https://github.com/sheranton/pe-diff",
+			"releases": [
+				{
+					"tag": "v1.1.0",
+					"name": "pe-diff v1.1.0",
+					"date": "2026-10-10T05:25:49Z",
+					"url": "https://github.com/sheranton/pe-diff/releases/tag/v1.1.0",
+					"summary": "Colored diffs and a visual README."
+				},
+				{
+					"tag": "v1.0.0",
+					"name": "pe-diff v1.0.0",
+					"date": "2026-10-10T01:33:02Z",
+					"url": "https://github.com/sheranton/pe-diff/releases/tag/v1.0.0",
+					"summary": "First tagged release, with prebuilt binaries for Windows x64, Linux x64 (statically linked) and macOS arm64."
+				}
+			]
+		},
+		{
+			"name": "pe-walker",
+			"description": "Command-line inspector for the Portable Executable format. DOS/NT headers, sections, imports, exports.",
+			"language": "C++",
+			"stars": 0,
+			"topics": [
+				"binary-analysis",
+				"cli",
+				"cpp",
+				"cpp17",
+				"pe-format",
+				"portable-executable",
+				"reverse-engineering",
+				"windows"
+			],
+			"pushed": "2026-10-10T08:23:55Z",
+			"url": "https://github.com/sheranton/pe-walker",
+			"releases": [
+				{
+					"tag": "v1.1.0",
+					"name": "pe-walker v1.1.0",
+					"date": "2026-10-10T05:25:48Z",
+					"url": "https://github.com/sheranton/pe-walker/releases/tag/v1.1.0",
+					"summary": "Colored output and a visual README."
+				},
+				{
+					"tag": "v1.0.0",
+					"name": "pe-walker v1.0.0",
+					"date": "2026-10-10T01:33:00Z",
+					"url": "https://github.com/sheranton/pe-walker/releases/tag/v1.0.0",
+					"summary": "First tagged release, with prebuilt binaries for Windows x64, Linux x64 (statically linked) and macOS arm64."
+				}
+			]
+		},
+		{
+			"name": "unwind-map",
+			"description": "Recover function boundaries from stripped Linux ELF binaries using the .eh_frame unwind tables that strip can't remove.",
+			"language": "Rust",
+			"stars": 0,
+			"topics": [
+				"aarch64",
+				"binary-analysis",
+				"cli",
+				"dwarf",
+				"eh-frame",
+				"elf",
+				"ghidra",
+				"linux",
+				"reverse-engineering",
+				"rust",
+				"x86-64"
+			],
+			"pushed": "2026-10-10T08:23:53Z",
+			"url": "https://github.com/sheranton/unwind-map",
+			"releases": []
+		}
+	]
+}
