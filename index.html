@@ -149,7 +149,7 @@
 			<div class="gutter" aria-hidden="true"><span class="addr">0x000000</span><span class="sname">.text</span><span class="meta">AX · <span class="size">0x0</span></span></div>
 			<div class="sec-main">
 				<h2 class="title"><span class="idx">02</span>Tools</h2>
-				<p class="sec-lede">These are my learning projects. They're all open source, tested in CI on Windows, Linux and macOS, and have no third-party dependencies. This section reads live from GitHub.</p>
+				<p class="sec-lede">These are my learning projects, and they're all open source. The binary-analysis tools are tested in CI on Windows, Linux and macOS and have no third-party dependencies. This section reads live from GitHub.</p>
 
 				<article class="feature" id="tool-unwind-map">
 					<div class="feature-copy">
@@ -175,7 +175,7 @@
 				<div class="kit">
 					<div class="kit-head">
 						<h3 id="kit-title">My other projects</h3>
-						<p id="kit-sub">Smaller C++17 tools I made while learning about Windows PE files and MSVC binaries.</p>
+						<p id="kit-sub">Smaller projects I've made while learning: C++17 tools for Windows PE files and MSVC binaries, a game launcher and a Discord plugin.</p>
 					</div>
 					<div class="kit-grid">
 						<div class="kit-list" id="kit-list" role="tablist" aria-orientation="vertical" aria-labelledby="kit-title">
@@ -186,6 +186,8 @@
 									<li><a href="https://github.com/sheranton/rtti-dump">rtti-dump</a>: recover class hierarchies from MSVC RTTI</li>
 									<li><a href="https://github.com/sheranton/vtable-dump">vtable-dump</a>: find vtables and their slots</li>
 									<li><a href="https://github.com/sheranton/pattern-scan">pattern-scan</a>: IDA-style signature scanning</li>
+									<li><a href="https://github.com/sheranton/Panda">Panda</a>: every game launcher in one library</li>
+									<li><a href="https://github.com/sheranton/opencode-discord-rpc">opencode-discord-rpc</a>: Discord Rich Presence for OpenCode</li>
 								</ul>
 							</noscript>
 						</div>
@@ -230,7 +232,7 @@
 				<ol class="notes">
 					<li><p class="label">Note 01</p><h3>Learning by building</h3><p>I learn each file format by writing a tool that reads it, then testing it on binaries I've built myself.</p></li>
 					<li><p class="label">Note 02</p><h3>Checking my work</h3><p>I test against real binaries and compare my results with established tools like readelf and llvm-readobj, so I find out when I've got something wrong.</p></li>
-					<li><p class="label">Note 03</p><h3>Keeping it small</h3><p>Each tool does one thing and has no third-party dependencies, so I can understand every line.</p></li>
+					<li><p class="label">Note 03</p><h3>Keeping it small</h3><p>Each tool does one thing, and my binary-analysis tools have no third-party dependencies, so I can understand every line.</p></li>
 					<li><p class="label">Note 04</p><h3>Writing it down</h3><p>Each README explains the file format the tool reads, which helps me check that I really understand it.</p></li>
 				</ol>
 			</div>

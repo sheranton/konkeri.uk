@@ -1,6 +1,6 @@
-// Real output from each tool, recorded on its own test binaries.
-// Taken from each tool repository's recorded demo (docs/demo.svg) and
-// unwind-map's demo transcript.
+// Real output from each tool, recorded on its own test binaries; Panda and
+// opencode-discord-rpc aren't command-line tools, so theirs show what their
+// READMEs document. Recordings come from each repository's docs/demo.svg.
 
 /** A run of text and an optional color class: g c y r m t d b. */
 export type Seg = [string, string?];
@@ -115,5 +115,31 @@ export const OUTPUTS: Record<string, Line[]> = {
 		[["$ ", "g"], ["./bench", "b"]],
 		[["random data  naive  1.02 GiB/s  patscan 11.58 GiB/s  11.3x"]],
 		[["worst case   naive  0.64 GiB/s  patscan  1.46 GiB/s   2.3x"]],
+	],
+	"Panda": [
+		[["# where Panda finds each launcher's installed games", "d"]],
+		[["Steam       ", "b"], ["libraryfolders.vdf + appmanifest_*.acf", "c"]],
+		[["Epic Games  ", "b"], ["%ProgramData%\\Epic\\...\\Manifests\\*.item", "c"]],
+		[["GOG Galaxy  ", "b"], ["HKLM\\SOFTWARE\\WOW6432Node\\GOG.com\\Games", "c"]],
+		[["Ubisoft     ", "b"], ["HKLM\\...\\Ubisoft\\Launcher\\Installs", "c"]],
+		[["EA          ", "b"], ["Origin *.mfst + EA Desktop installerdata.xml", "c"]],
+		[["Battle.net  ", "b"], ["%AppData%\\Battle.net\\Battle.net.config", "c"]],
+		[["Riot        ", "b"], ["RiotClientInstalls.json + Metadata\\", "c"]],
+		[["Rockstar    ", "b"], ["HKLM\\...\\Rockstar Games\\<title>\\InstallFolder", "c"]],
+		[],
+		[["# and launches each one through its own client", "d"]],
+		[["Steam       ", "b"], ["steam://rungameid/<appid>", "g"]],
+		[["Epic Games  ", "b"], ["com.epicgames.launcher://apps/...", "g"]],
+		[["Ubisoft     ", "b"], ["uplay://launch/<id>/0", "g"]],
+	],
+	"opencode-discord-rpc": [
+		[["# the card it shows in Discord while you code", "d"]],
+		[["+------------------------------------------+", "d"]],
+		[["| ", "d"], ["[OpenCode logo]", "d"], ["                          |", "d"]],
+		[["| ", "d"], ["Using "], ["gpt-4o", "b"], ["                             |", "d"], ["  ← model", "d"]],
+		[["| ", "d"], ["Coding", "g"], [" · my-project · "], ["34.2k tok", "c"], ["          |", "d"], ["  ← status · project · tokens", "d"]],
+		[["| ", "d"], ["00:12:48", "c"], [" elapsed"], ["                         |", "d"], ["  ← session timer", "d"]],
+		[["| ", "d"], ["[ Visit OpenCode.ai ]", "m"], ["                    |", "d"]],
+		[["+------------------------------------------+", "d"]],
 	],
 };

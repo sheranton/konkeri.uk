@@ -1,8 +1,57 @@
 {
 	"user": "sheranton",
-	"fetchedAt": "2026-10-10T08:24:43.915Z",
+	"fetchedAt": "2026-10-16T10:55:14.493Z",
 	"source": "snapshot",
 	"repos": [
+		{
+			"name": "Panda",
+			"description": "Unified game launcher that pulls your installed games from Steam, Epic, GOG, Ubisoft, EA, Battle.net and Riot into one grid.",
+			"language": "JavaScript",
+			"stars": 0,
+			"topics": [],
+			"pushed": "2026-10-15T11:56:37Z",
+			"url": "https://github.com/sheranton/Panda",
+			"releases": [
+				{
+					"tag": "v1.1.0",
+					"name": "Panda v1.1.0",
+					"date": "2026-10-15T11:56:37Z",
+					"url": "https://github.com/sheranton/Panda/releases/tag/v1.1.0",
+					"summary": "**Panda** — the launcher formerly known as OmniLauncher. New name, new panda logo, same one-grid-for-every-launcher."
+				},
+				{
+					"tag": "v1.0.2",
+					"name": "OmniLauncher v1.0.2",
+					"date": "2026-10-15T11:41:20Z",
+					"url": "https://github.com/sheranton/Panda/releases/tag/v1.0.2",
+					"summary": "Major UI redesign — OmniLauncher now looks and works like a Steam library."
+				},
+				{
+					"tag": "v1.0.1",
+					"name": "OmniLauncher v1.0.1",
+					"date": "2026-10-15T11:30:35Z",
+					"url": "https://github.com/sheranton/Panda/releases/tag/v1.0.1",
+					"summary": "Fixes the **All games** mode. Steam retired the keyless library endpoint, so owned-but-uninstalled games now load through the official Steam Web API. This build ships with the key bundled — nothing to"
+				},
+				{
+					"tag": "v1.0.0",
+					"name": "OmniLauncher v1.0.0",
+					"date": "2026-10-15T11:19:36Z",
+					"url": "https://github.com/sheranton/Panda/releases/tag/v1.0.0",
+					"summary": "First release of OmniLauncher — one grid for every game across Steam, Epic, GOG, Ubisoft, EA, Battle.net, Riot and Rockstar."
+				}
+			]
+		},
+		{
+			"name": "opencode-discord-rpc",
+			"description": "Discord Rich Presence plugin for OpenCode V2 - show your AI coding activity in Discord (dependency-free IPC)",
+			"language": "JavaScript",
+			"stars": 0,
+			"topics": [],
+			"pushed": "2026-10-15T10:33:04Z",
+			"url": "https://github.com/sheranton/opencode-discord-rpc",
+			"releases": []
+		},
 		{
 			"name": "pattern-scan",
 			"description": "Single-header C++17 library for IDA-style byte signature scanning. Header-only, no dependencies.",

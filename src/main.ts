@@ -282,13 +282,15 @@ function initMinimap() {
 
 // -------------------------------------------------------- projects (live)
 const FEATURED = "unwind-map";
-const ORDER = ["pe-walker", "pe-diff", "rtti-dump", "vtable-dump", "pattern-scan"];
+const ORDER = ["pe-walker", "pe-diff", "rtti-dump", "vtable-dump", "pattern-scan", "Panda", "opencode-discord-rpc"];
 const SUMMARY: Record<string, string> = {
 	"pe-walker": "Inspect any PE file",
 	"pe-diff": "Structural diff of two builds",
 	"rtti-dump": "Class hierarchies from MSVC RTTI",
 	"vtable-dump": "Vtables and the code in each slot",
 	"pattern-scan": "IDA-style signature scanning",
+	Panda: "Every game launcher in one library",
+	"opencode-discord-rpc": "Discord Rich Presence for OpenCode",
 };
 const HIGHLIGHTS: Record<string, string> = {
 	"pe-walker": "Headers, sections, imports and exports of any PE file, analyzed on Windows, Linux or macOS.",
@@ -296,8 +298,10 @@ const HIGHLIGHTS: Record<string, string> = {
 	"rtti-dump": "Rebuilds inheritance trees from stripped MSVC binaries and emits Mermaid class diagrams.",
 	"vtable-dump": "Finds every vtable through its RTTI back-reference and lists the code in each slot.",
 	"pattern-scan": "A single header that came out about 11× faster than a byte-by-byte scan in my benchmark, plus the patscan CLI.",
+	Panda: "A Windows app (Electron) that reads each launcher's own files to list the games from Steam, Epic, GOG, Ubisoft, EA, Battle.net, Riot and Rockstar in one Steam-style library, then hands launching back to the real client.",
+	"opencode-discord-rpc": "Shows your model, project and live context size in Discord while you code with OpenCode V2. It talks to Discord's local IPC pipe directly, so there are no dependencies and no build step.",
 };
-const toolClass = (name: string) => `tc-${/^[a-z0-9-]+$/.test(name) ? name : "other"}`;
+const toolClass = (name: string) => `tc-${/^[a-z0-9-]+$/i.test(name) ? name.toLowerCase() : "other"}`;
 
 function renderFeature(repo: Repo | undefined) {
 	const meta = $("feature-meta");
@@ -327,7 +331,7 @@ function panel(repo: Repo): Child[] {
 		),
 		h("p", { class: "kp-desc" }, repo.description),
 		HIGHLIGHTS[repo.name] ? h("p", { class: "kp-hl" }, HIGHLIGHTS[repo.name]) : null,
-		out ? h("div", { class: "crop" }, h("pre", { class: "plate out", tabindex: "0", "aria-label": `${repo.name} output` }, listing(out))) : null,
+		out ? h("div", { class: "crop" }, h("pre", { class: "plate out", tabindex: "0", "aria-label": `${repo.name} preview` }, listing(out))) : null,
 		h("footer", { class: "kp-foot" },
 			repo.topics.length ? h("ul", { class: "topics" }, ...repo.topics.slice(0, 5).map((t) => h("li", {}, t))) : null,
 			h("a", { class: "btn", href: repo.url }, "Source ", h("span", { "aria-hidden": "true" }, "↗")),
@@ -340,7 +344,7 @@ function renderKit(repos: Repo[]) {
 	const pane = $("kit-panel");
 	if (!list || !pane) return;
 	const sub = $("kit-sub");
-	if (sub && !repos.every((r) => r.language === "C++")) sub.textContent = "More tools, newest first.";
+	if (sub && !repos.some((r) => r.language === "C++")) sub.textContent = "Smaller projects I've made while learning.";
 
 	const tabs = repos.map((repo, i) => {
 		const latest = repo.releases[0];

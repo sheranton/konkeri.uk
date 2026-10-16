@@ -16,7 +16,7 @@ const firstLine = (text) =>
 const res = await fetch(`https://api.github.com/users/${user}/repos?per_page=100&sort=pushed&type=owner`, { headers });
 if (!res.ok) throw new Error(`GitHub API returned ${res.status}`);
 const repos = (await res.json())
-	.filter((r) => !r.fork && !r.private && !r.archived && r.name !== user)
+	.filter((r) => !r.fork && !r.private && !r.archived && r.name !== user && r.name !== "konkeri.uk")
 	.map((r) => ({
 		name: r.name,
 		description: r.description ?? "",
@@ -30,7 +30,7 @@ const repos = (await res.json())
 
 for (const repo of repos) {
 	const rr = await fetch(`https://api.github.com/repos/${user}/${repo.name}/releases?per_page=5`, { headers });
-	if (!rr.ok) continue;
+	if (!rr.ok) throw new Error(`GitHub API returned ${rr.status} for ${repo.name} releases`);
 	repo.releases = (await rr.json())
 		.filter((r) => !r.draft)
 		.map((r) => ({ tag: r.tag_name, name: r.name || r.tag_name, date: r.published_at, url: r.html_url, summary: firstLine(r.body) }));

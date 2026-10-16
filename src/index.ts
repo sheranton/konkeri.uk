@@ -7,10 +7,17 @@ import type { GitHubData, Repo } from "./types.ts";
 interface Env {
 	ASSETS: Fetcher;
 	GITHUB_USER: string;
+	/** Optional read-only token. Without one, GitHub allows 60 requests an hour per IP, and Cloudflare's IPs are shared. */
+	GITHUB_TOKEN?: string;
 }
 
-const CACHE_KEY = "https://konkeri.uk/__cache/github/v2";
+const CACHE_KEY = "https://konkeri.uk/__cache/github/v3";
 const CACHE_SECONDS = 3600;
+/** The last complete live response, kept for a week as a better fallback than the build-time snapshot. */
+const LAST_GOOD_KEY = "https://konkeri.uk/__cache/github/last-good/v1";
+const LAST_GOOD_SECONDS = 7 * 24 * 3600;
+/** Repositories that aren't projects: the site's own source. (The profile README repo is filtered by name below.) */
+const HIDDEN = new Set(["konkeri.uk"]);
 
 const SECURITY_HEADERS: Record<string, string> = {
 	"Content-Security-Policy":
@@ -34,17 +41,18 @@ function firstLine(text: string | null): string {
 	return line.replace(/^[-*]\s+/, "").trim().slice(0, 200);
 }
 
-async function fetchGitHub(user: string): Promise<GitHubData> {
-	const headers = {
+async function fetchGitHub(user: string, token?: string): Promise<GitHubData> {
+	const headers: Record<string, string> = {
 		"User-Agent": "konkeri.uk",
 		Accept: "application/vnd.github+json",
 		"X-GitHub-Api-Version": "2022-11-28",
 	};
+	if (token) headers.Authorization = `Bearer ${token}`;
 	const res = await fetch(`https://api.github.com/users/${user}/repos?per_page=100&sort=pushed&type=owner`, { headers });
 	if (!res.ok) throw new Error(`GitHub API returned ${res.status}`);
 	const raw = (await res.json()) as any[];
 	const repos: Repo[] = raw
-		.filter((r) => !r.fork && !r.private && !r.archived && r.name !== user)
+		.filter((r) => !r.fork && !r.private && !r.archived && r.name !== user && !HIDDEN.has(r.name))
 		.map((r) => ({
 			name: r.name,
 			description: r.description ?? "",
@@ -58,7 +66,8 @@ async function fetchGitHub(user: string): Promise<GitHubData> {
 	await Promise.all(
 		repos.map(async (repo) => {
 			const rr = await fetch(`https://api.github.com/repos/${user}/${repo.name}/releases?per_page=5`, { headers });
-			if (!rr.ok) return;
+			// A rate-limited release lookup must fail the whole fetch, not cache a list with releases missing.
+			if (!rr.ok) throw new Error(`GitHub API returned ${rr.status} for ${repo.name} releases`);
 			const releases = (await rr.json()) as any[];
 			repo.releases = releases
 				.filter((r) => !r.draft)
@@ -80,17 +89,27 @@ async function githubEndpoint(env: Env, ctx: ExecutionContext): Promise<Response
 	if (cached) return cached;
 
 	let data: GitHubData;
+	let fresh = true;
+	let why = "live";
 	try {
-		data = await fetchGitHub(env.GITHUB_USER);
-	} catch {
-		// Rate-limited or unreachable: serve the snapshot taken at build time.
-		data = { ...(snapshot as GitHubData), source: "snapshot" };
+		data = await fetchGitHub(env.GITHUB_USER, env.GITHUB_TOKEN);
+		const keep = new Response(JSON.stringify(data), {
+			headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": `public, max-age=${LAST_GOOD_SECONDS}` },
+		});
+		ctx.waitUntil(cache.put(LAST_GOOD_KEY, keep));
+	} catch (err) {
+		// Rate-limited or unreachable: the last complete live copy, else the snapshot taken at build time.
+		fresh = false;
+		const last = await cache.match(LAST_GOOD_KEY);
+		data = last ? ((await last.json()) as GitHubData) : { ...(snapshot as GitHubData), source: "snapshot" };
+		why = `${last ? "last-good" : "snapshot"}; ${err instanceof Error ? err.message : "fetch failed"}`;
 	}
 	const body = JSON.stringify(data);
 	const response = new Response(body, {
 		headers: {
 			"Content-Type": "application/json; charset=utf-8",
-			"Cache-Control": `public, max-age=${data.source === "live" ? CACHE_SECONDS : 300}`,
+			"Cache-Control": `public, max-age=${fresh ? CACHE_SECONDS : 300}`,
+			"X-Data-Source": why,
 		},
 	});
 	ctx.waitUntil(cache.put(CACHE_KEY, response.clone()));

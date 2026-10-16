@@ -56,6 +56,8 @@
 .tc-rtti-dump { --tc: #d0447d; }
 .tc-vtable-dump { --tc: #8a5ad8; }
 .tc-pattern-scan { --tc: #3d9f58; }
+.tc-panda { --tc: #e0702e; }
+.tc-opencode-discord-rpc { --tc: #5865f2; }
 .tc-other { --tc: var(--accent); }
 .sq { display: inline-block; flex: none; width: 9px; height: 9px; background: var(--tc, var(--accent)); }
 
