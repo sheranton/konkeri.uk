@@ -11,7 +11,7 @@ interface Env {
 	GITHUB_TOKEN?: string;
 }
 
-const CACHE_KEY = "https://konkeri.uk/__cache/github/v3";
+const CACHE_KEY = "https://konkeri.uk/__cache/github/v4";
 const CACHE_SECONDS = 3600;
 /** The last complete live response, kept for a week as a better fallback than the build-time snapshot. */
 const LAST_GOOD_KEY = "https://konkeri.uk/__cache/github/last-good/v1";
@@ -90,7 +90,7 @@ async function githubEndpoint(env: Env, ctx: ExecutionContext): Promise<Response
 
 	let data: GitHubData;
 	let fresh = true;
-	let why = "live";
+	let why = env.GITHUB_TOKEN ? "live; authenticated" : "live";
 	try {
 		data = await fetchGitHub(env.GITHUB_USER, env.GITHUB_TOKEN);
 		const keep = new Response(JSON.stringify(data), {

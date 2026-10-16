@@ -36,6 +36,8 @@ npm run deploy     # build and deploy to Cloudflare
 
 `npm run preview` is the faithful local view: the dev server injects styles inline, which the site's own Content Security Policy blocks.
 
+The Worker reads GitHub with an optional `GITHUB_TOKEN` secret, a read-only token for public repositories that raises the API limit from 60 to 5,000 requests an hour. It's set in the Cloudflare dashboard and declared in `cloudflare.config.ts`, so deploys keep it.
+
 ## Licence
 
 All rights reserved. This code is published to be read, not reused; see [LICENSE](LICENSE).
