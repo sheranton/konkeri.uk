@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>konkeri · binary analysis, Windows &amp; Linux internals</title>
-	<meta name="description" content="konkeri builds small, sharp tools that recover structure from stripped binaries: function boundaries, class hierarchies, vtables, and what changed between two builds. Rust, C++, C and Python.">
+	<title>konkeri · learning binary analysis and Windows &amp; Linux internals</title>
+	<meta name="description" content="konkeri is a beginner learning reverse engineering and Windows &amp; Linux internals by building small tools in Rust, C++, C and Python.">
 	<meta name="color-scheme" content="light dark">
 	<meta name="theme-color" content="#f4efe9" media="(prefers-color-scheme: light)">
 	<meta name="theme-color" content="#100c0c" media="(prefers-color-scheme: dark)">
@@ -12,8 +12,8 @@
 	<link rel="canonical" href="https://konkeri.uk/">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://konkeri.uk/">
-	<meta property="og:title" content="konkeri · binary analysis, Windows & Linux internals">
-	<meta property="og:description" content="Small, sharp tools that recover structure from stripped binaries.">
+	<meta property="og:title" content="konkeri · learning binary analysis and Windows & Linux internals">
+	<meta property="og:description" content="A beginner learning how binaries work, one small tool at a time.">
 	<meta property="og:image" content="https://konkeri.uk/og.png">
 	<meta property="og:image:width" content="1200">
 	<meta property="og:image:height" content="630">
@@ -76,13 +76,13 @@
 000001b0  4c 00 00 00 00 00 00 00  4c 00 00 00 00 00 00 00  |L.......L.......|</pre>
 			<div class="gutter" aria-hidden="true"><span class="addr">0x000000</span><span class="sname">e_ident</span><span class="meta">7f 45 4c 46</span></div>
 			<div class="sec-main">
-				<p class="kicker"><i aria-hidden="true"></i>Binary analysis · Windows &amp; Linux internals</p>
+				<p class="kicker"><i aria-hidden="true"></i>Beginner · binary analysis · Windows &amp; Linux internals</p>
 				<h1 class="name" aria-label="konkeri">
 					<span class="ch" aria-hidden="true"><b>k</b><i>6b</i></span><span class="ch" aria-hidden="true"><b>o</b><i>6f</i></span><span class="ch" aria-hidden="true"><b>n</b><i>6e</i></span><span class="ch" aria-hidden="true"><b>k</b><i>6b</i></span><span class="ch" aria-hidden="true"><b>e</b><i>65</i></span><span class="ch" aria-hidden="true"><b>r</b><i>72</i></span><span class="ch" aria-hidden="true"><b>i</b><i>69</i></span>
 				</h1>
 				<div class="hero-grid">
 					<div class="hero-copy">
-						<p class="lede">I build small, sharp tools that recover structure from stripped binaries: function boundaries, class hierarchies, vtables, and what changed between two builds.</p>
+						<p class="lede">I'm a beginner learning how binaries work by building small tools to take them apart: finding functions, class hierarchies and vtables, and spotting what changed between two builds.</p>
 						<p class="langs" aria-label="Languages"><span>Rust</span><span>C++</span><span>C</span><span>Python</span></p>
 						<p class="cta">
 							<a class="btn btn-solid" href="#tools">Browse the tools <span aria-hidden="true">↓</span></a>
@@ -108,11 +108,11 @@
 					<table class="shdr">
 						<thead><tr><th scope="col">[Nr]</th><th scope="col">Name</th><th scope="col">Contents</th><th scope="col" class="num">Offset</th><th scope="col" class="num hide-sm">Size</th><th scope="col" class="hide-sm">Flg</th></tr></thead>
 						<tbody>
-							<tr data-for="about"><td>[ 1]</td><td><a href="#about">.comment</a></td><td>About: who I am and what I work on</td><td class="num off">–</td><td class="num size hide-sm">–</td><td class="hide-sm">MS</td></tr>
-							<tr data-for="tools"><td>[ 2]</td><td><a href="#tools">.text</a></td><td>Tools: <span id="toc-tools">6</span> open-source tools, live from GitHub</td><td class="num off">–</td><td class="num size hide-sm">–</td><td class="hide-sm">AX</td></tr>
-							<tr data-for="toolbox"><td>[ 3]</td><td><a href="#toolbox">.rodata</a></td><td>Toolbox: languages, platforms and formats</td><td class="num off">–</td><td class="num size hide-sm">–</td><td class="hide-sm">A</td></tr>
+							<tr data-for="about"><td>[ 1]</td><td><a href="#about">.comment</a></td><td>About: who I am and what I'm learning</td><td class="num off">–</td><td class="num size hide-sm">–</td><td class="hide-sm">MS</td></tr>
+							<tr data-for="tools"><td>[ 2]</td><td><a href="#tools">.text</a></td><td>Tools: <span id="toc-tools">6</span> learning projects, live from GitHub</td><td class="num off">–</td><td class="num size hide-sm">–</td><td class="hide-sm">AX</td></tr>
+							<tr data-for="toolbox"><td>[ 3]</td><td><a href="#toolbox">.rodata</a></td><td>Toolbox: what I've been learning with</td><td class="num off">–</td><td class="num size hide-sm">–</td><td class="hide-sm">A</td></tr>
 							<tr data-for="releases"><td>[ 4]</td><td><a href="#releases">.gnu.version</a></td><td>Releases: <span id="toc-releases">10</span> tagged releases</td><td class="num off">–</td><td class="num size hide-sm">–</td><td class="hide-sm">A</td></tr>
-							<tr data-for="method"><td>[ 5]</td><td><a href="#method">.note</a></td><td>Method: how I build and test</td><td class="num off">–</td><td class="num size hide-sm">–</td><td class="hide-sm">A</td></tr>
+							<tr data-for="method"><td>[ 5]</td><td><a href="#method">.note</a></td><td>Method: how I'm learning</td><td class="num off">–</td><td class="num size hide-sm">–</td><td class="hide-sm">A</td></tr>
 							<tr data-for="contact"><td>[ 6]</td><td><a href="#contact">.dynamic</a></td><td>Contact: where to find me</td><td class="num off">–</td><td class="num size hide-sm">–</td><td class="hide-sm">WA</td></tr>
 						</tbody>
 					</table>
@@ -127,19 +127,19 @@
 				<h2 class="title"><span class="idx">01</span>About</h2>
 				<div class="about">
 					<div class="prose">
-						<p class="big">I'm <strong>konkeri</strong>, an independent researcher working on systems programming and binary analysis across Windows and Linux.</p>
-						<p>Most of what I build is small, focused tooling that makes the layer between source code and the running process visible: how compilers lay out objects and emit metadata, how linkers assemble a binary, how loaders map it into memory, and how debuggers and unwinders read it back.</p>
+						<p class="big">I'm <strong>konkeri</strong>, a beginner teaching myself systems programming and reverse engineering on Windows and Linux.</p>
+						<p>I learn best by building things, so most of my projects are small tools that help me see what happens between source code and a running program: how compilers lay out objects and metadata, how linkers put a binary together, how loaders map it into memory, and how debuggers and unwinders read it back.</p>
 					</div>
 					<blockquote class="thesis">
-						<p>The metadata a compiler <em>has</em> to leave in a binary, such as RTTI, vtables, unwind tables and import tables, survives stripping. It often says more about a program's structure than the symbol table did.</p>
-						<footer class="label">Working thesis</footer>
+						<p>Something I've found fascinating so far: the metadata a compiler <em>has</em> to leave in a binary, such as RTTI, vtables, unwind tables and import tables, survives stripping. It can tell you a surprising amount about how a program is put together.</p>
+						<footer class="label">Something I've learned</footer>
 					</blockquote>
 				</div>
 				<dl class="focus">
-					<div><dt>Windows x64</dt><dd>PE/COFF layout, the MSVC C++ ABI, RTTI and class hierarchy recovery, vtables, imports and exports.</dd></div>
-					<div><dt>Linux</dt><dd>ELF, the System V AMD64 ABI, DWARF call frame information and <code>.eh_frame</code>, program headers and the loader.</dd></div>
-					<div><dt>Tooling</dt><dd>Static analysis that recovers structure from stripped binaries, built to sit alongside Ghidra, GDB, x64dbg and WinDbg.</dd></div>
-					<div><dt>Languages</dt><dd>C++ for Windows tooling, Rust for cross-platform CLIs, C for the lowest layers, Python for analysis scripts and test harnesses.</dd></div>
+					<div><dt>Windows x64</dt><dd>Learning PE/COFF layout, the MSVC C++ ABI, RTTI and class hierarchies, vtables, imports and exports.</dd></div>
+					<div><dt>Linux</dt><dd>Learning ELF, the System V AMD64 ABI, DWARF call frame information and <code>.eh_frame</code>, program headers and the loader.</dd></div>
+					<div><dt>Tooling</dt><dd>Reading stripped binaries with Ghidra, GDB, x64dbg and WinDbg, and writing small tools to help along the way.</dd></div>
+					<div><dt>Languages</dt><dd>C++ for my Windows tools, Rust for cross-platform command-line tools, C for the low-level parts, Python for scripts. Still learning all four.</dd></div>
 				</dl>
 			</div>
 		</section>
@@ -149,14 +149,14 @@
 			<div class="gutter" aria-hidden="true"><span class="addr">0x000000</span><span class="sname">.text</span><span class="meta">AX · <span class="size">0x0</span></span></div>
 			<div class="sec-main">
 				<h2 class="title"><span class="idx">02</span>Tools</h2>
-				<p class="sec-lede">Every tool is open source, has zero third-party dependencies, and is tested in CI on Windows, Linux and macOS. This section reads live from GitHub.</p>
+				<p class="sec-lede">These are my learning projects. They're all open source, tested in CI on Windows, Linux and macOS, and have no third-party dependencies. This section reads live from GitHub.</p>
 
 				<article class="feature" id="tool-unwind-map">
 					<div class="feature-copy">
-						<p class="label"><i class="sq tc-unwind-map" aria-hidden="true"></i>Flagship · Rust</p>
+						<p class="label"><i class="sq tc-unwind-map" aria-hidden="true"></i>Biggest project so far · Rust</p>
 						<h3><a href="https://github.com/sheranton/unwind-map">unwind-map</a></h3>
 						<p class="feature-desc" id="feature-desc">Recover function boundaries from stripped Linux ELF binaries using the .eh_frame unwind tables that strip can't remove.</p>
-						<p>It finds every function that has unwind info, with no false starts, and its output feeds straight back into <code>objcopy</code> to give a stripped binary its symbols again.</p>
+						<p>In my tests it found every function that has unwind info without any false starts, and its output can go straight back into <code>objcopy</code> to give a stripped binary its symbols again.</p>
 						<dl class="spec">
 							<div><dt>Input</dt><dd>Stripped ELF binaries</dd></div>
 							<div><dt>Architectures</dt><dd>x86-64 · x86 · AArch64</dd></div>
@@ -174,8 +174,8 @@
 
 				<div class="kit">
 					<div class="kit-head">
-						<h3 id="kit-title">The rest of the toolkit</h3>
-						<p id="kit-sub">C++17 tools for Windows PE files and MSVC binaries.</p>
+						<h3 id="kit-title">My other projects</h3>
+						<p id="kit-sub">Smaller C++17 tools I made while learning about Windows PE files and MSVC binaries.</p>
 					</div>
 					<div class="kit-grid">
 						<div class="kit-list" id="kit-list" role="tablist" aria-orientation="vertical" aria-labelledby="kit-title">
@@ -201,6 +201,7 @@
 			<div class="gutter" aria-hidden="true"><span class="addr">0x000000</span><span class="sname">.rodata</span><span class="meta">A · <span class="size">0x0</span></span></div>
 			<div class="sec-main">
 				<h2 class="title"><span class="idx">03</span>Toolbox</h2>
+				<p class="sec-lede">The languages and tools I've been learning with so far.</p>
 				<dl class="consts">
 					<div><dt>Languages</dt><dd><span>Rust</span><span>C++17/20</span><span>C</span><span>Python</span></dd></div>
 					<div><dt>Platforms</dt><dd><span>Windows</span><span>Linux</span></dd></div>
@@ -216,7 +217,7 @@
 			<div class="gutter" aria-hidden="true"><span class="addr">0x000000</span><span class="sname">.gnu.version</span><span class="meta">A · <span class="size">0x0</span></span></div>
 			<div class="sec-main">
 				<h2 class="title"><span class="idx">04</span>Releases</h2>
-				<p class="sec-lede">Every tagged release across the toolkit, newest first.</p>
+				<p class="sec-lede">Every tagged release of my projects, newest first.</p>
 				<ol class="vers" id="timeline"></ol>
 			</div>
 		</section>
@@ -227,10 +228,10 @@
 			<div class="sec-main">
 				<h2 class="title"><span class="idx">05</span>Method</h2>
 				<ol class="notes">
-					<li><p class="label">Note 01</p><h3>Lab-first</h3><p>Everything is built and tested on my own machines, against my own target binaries.</p></li>
-					<li><p class="label">Note 02</p><h3>Verified, not eyeballed</h3><p>Golden-file tests against real binaries, cross-checked with independent decoders such as readelf and llvm-readobj.</p></li>
-					<li><p class="label">Note 03</p><h3>Small and auditable</h3><p>Focused codebases with zero third-party dependencies, so the whole tool fits in your head.</p></li>
-					<li><p class="label">Note 04</p><h3>Documented internals</h3><p>Every README explains the format being parsed, with diagrams built from real data.</p></li>
+					<li><p class="label">Note 01</p><h3>Learning by building</h3><p>I learn each file format by writing a tool that reads it, then testing it on binaries I've built myself.</p></li>
+					<li><p class="label">Note 02</p><h3>Checking my work</h3><p>I test against real binaries and compare my results with established tools like readelf and llvm-readobj, so I find out when I've got something wrong.</p></li>
+					<li><p class="label">Note 03</p><h3>Keeping it small</h3><p>Each tool does one thing and has no third-party dependencies, so I can understand every line.</p></li>
+					<li><p class="label">Note 04</p><h3>Writing it down</h3><p>Each README explains the file format the tool reads, which helps me check that I really understand it.</p></li>
 				</ol>
 			</div>
 		</section>
@@ -240,7 +241,7 @@
 			<div class="gutter" aria-hidden="true"><span class="addr">0x000000</span><span class="sname">.dynamic</span><span class="meta">WA · <span class="size">0x0</span></span></div>
 			<div class="sec-main">
 				<h2 class="title"><span class="idx">06</span>Contact</h2>
-				<p class="contact-lede">The best way to reach me is on GitHub: open an issue on any repository, or follow along there.</p>
+				<p class="contact-lede">I'm still learning, so feedback, corrections and tips are really welcome. The best way to reach me is on GitHub: open an issue on any repository.</p>
 				<a class="biglink" href="https://github.com/sheranton" rel="me">github.com/sheranton<span aria-hidden="true">↗</span></a>
 				<pre class="dyn" aria-label="readelf -d style summary of the links above"><span class="dim">  Tag        Type       Name/Value</span>
  0x00000001 (NEEDED)   Shared library: [<a href="https://github.com/sheranton">github.com/sheranton</a>]

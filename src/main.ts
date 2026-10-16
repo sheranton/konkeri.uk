@@ -295,7 +295,7 @@ const HIGHLIGHTS: Record<string, string> = {
 	"pe-diff": "Shows what changed between two builds and exits 1 on drift, so it can gate a CI pipeline.",
 	"rtti-dump": "Rebuilds inheritance trees from stripped MSVC binaries and emits Mermaid class diagrams.",
 	"vtable-dump": "Finds every vtable through its RTTI back-reference and lists the code in each slot.",
-	"pattern-scan": "A single header about 11× faster than a byte-by-byte scan, plus the patscan CLI.",
+	"pattern-scan": "A single header that came out about 11× faster than a byte-by-byte scan in my benchmark, plus the patscan CLI.",
 };
 const toolClass = (name: string) => `tc-${/^[a-z0-9-]+$/.test(name) ? name : "other"}`;
 
