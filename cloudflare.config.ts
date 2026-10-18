@@ -8,7 +8,7 @@ export default defineConfig({
 		entrypoint,
 		env: {
 			ASSETS: bindings.assets(),
-			GITHUB_USER: bindings.text("sheranton"),
+			GITHUB_USER: bindings.text("sheratonc"),
 			// Read-only GitHub token, set in the Cloudflare dashboard; it raises the API limit from 60 to 5,000 requests an hour.
 			GITHUB_TOKEN: bindings.secret(),
 		},

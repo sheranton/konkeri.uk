@@ -430,7 +430,7 @@ async function loadProjects() {
 		renderProjects((await res.json()) as GitHubData);
 	} catch {
 		const note = $("source-note");
-		if (note) note.textContent = "Couldn't reach GitHub just now; every tool is at github.com/sheranton.";
+		if (note) note.textContent = "Couldn't reach GitHub just now; every tool is at github.com/sheratonc.";
 	}
 }
 

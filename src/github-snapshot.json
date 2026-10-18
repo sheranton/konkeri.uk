@@ -1,6 +1,6 @@
 {
-	"user": "sheranton",
-	"fetchedAt": "2026-10-16T10:55:14.493Z",
+	"user": "sheratonc",
+	"fetchedAt": "2026-10-18T15:37:17.881Z",
 	"source": "snapshot",
 	"repos": [
 		{
@@ -10,34 +10,34 @@
 			"stars": 0,
 			"topics": [],
 			"pushed": "2026-10-15T11:56:37Z",
-			"url": "https://github.com/sheranton/Panda",
+			"url": "https://github.com/sheratonc/Panda",
 			"releases": [
 				{
 					"tag": "v1.1.0",
 					"name": "Panda v1.1.0",
 					"date": "2026-10-15T11:56:37Z",
-					"url": "https://github.com/sheranton/Panda/releases/tag/v1.1.0",
+					"url": "https://github.com/sheratonc/Panda/releases/tag/v1.1.0",
 					"summary": "**Panda** — the launcher formerly known as OmniLauncher. New name, new panda logo, same one-grid-for-every-launcher."
 				},
 				{
 					"tag": "v1.0.2",
 					"name": "OmniLauncher v1.0.2",
 					"date": "2026-10-15T11:41:20Z",
-					"url": "https://github.com/sheranton/Panda/releases/tag/v1.0.2",
+					"url": "https://github.com/sheratonc/Panda/releases/tag/v1.0.2",
 					"summary": "Major UI redesign — OmniLauncher now looks and works like a Steam library."
 				},
 				{
 					"tag": "v1.0.1",
 					"name": "OmniLauncher v1.0.1",
 					"date": "2026-10-15T11:30:35Z",
-					"url": "https://github.com/sheranton/Panda/releases/tag/v1.0.1",
+					"url": "https://github.com/sheratonc/Panda/releases/tag/v1.0.1",
 					"summary": "Fixes the **All games** mode. Steam retired the keyless library endpoint, so owned-but-uninstalled games now load through the official Steam Web API. This build ships with the key bundled — nothing to"
 				},
 				{
 					"tag": "v1.0.0",
 					"name": "OmniLauncher v1.0.0",
 					"date": "2026-10-15T11:19:36Z",
-					"url": "https://github.com/sheranton/Panda/releases/tag/v1.0.0",
+					"url": "https://github.com/sheratonc/Panda/releases/tag/v1.0.0",
 					"summary": "First release of OmniLauncher — one grid for every game across Steam, Epic, GOG, Ubisoft, EA, Battle.net, Riot and Rockstar."
 				}
 			]
@@ -49,7 +49,7 @@
 			"stars": 0,
 			"topics": [],
 			"pushed": "2026-10-15T10:33:04Z",
-			"url": "https://github.com/sheranton/opencode-discord-rpc",
+			"url": "https://github.com/sheratonc/opencode-discord-rpc",
 			"releases": []
 		},
 		{
@@ -68,20 +68,20 @@
 				"signature-scanning"
 			],
 			"pushed": "2026-10-10T08:24:01Z",
-			"url": "https://github.com/sheranton/pattern-scan",
+			"url": "https://github.com/sheratonc/pattern-scan",
 			"releases": [
 				{
 					"tag": "v1.1.0",
 					"name": "pattern-scan v1.1.0",
 					"date": "2026-10-10T05:25:55Z",
-					"url": "https://github.com/sheranton/pattern-scan/releases/tag/v1.1.0",
+					"url": "https://github.com/sheratonc/pattern-scan/releases/tag/v1.1.0",
 					"summary": "The patscan command-line tool."
 				},
 				{
 					"tag": "v1.0.0",
 					"name": "pattern-scan v1.0.0",
 					"date": "2026-10-10T01:33:11Z",
-					"url": "https://github.com/sheranton/pattern-scan/releases/tag/v1.0.0",
+					"url": "https://github.com/sheratonc/pattern-scan/releases/tag/v1.0.0",
 					"summary": "First tagged release. The single header is attached below."
 				}
 			]
@@ -103,20 +103,20 @@
 				"windows"
 			],
 			"pushed": "2026-10-10T08:24:00Z",
-			"url": "https://github.com/sheranton/vtable-dump",
+			"url": "https://github.com/sheratonc/vtable-dump",
 			"releases": [
 				{
 					"tag": "v1.1.0",
 					"name": "vtable-dump v1.1.0",
 					"date": "2026-10-10T05:25:52Z",
-					"url": "https://github.com/sheranton/vtable-dump/releases/tag/v1.1.0",
+					"url": "https://github.com/sheratonc/vtable-dump/releases/tag/v1.1.0",
 					"summary": "Readable names and a visual README."
 				},
 				{
 					"tag": "v1.0.0",
 					"name": "vtable-dump v1.0.0",
 					"date": "2026-10-10T01:33:05Z",
-					"url": "https://github.com/sheranton/vtable-dump/releases/tag/v1.0.0",
+					"url": "https://github.com/sheratonc/vtable-dump/releases/tag/v1.0.0",
 					"summary": "First tagged release, with prebuilt binaries for Windows x64, Linux x64 (statically linked) and macOS arm64."
 				}
 			]
@@ -138,20 +138,20 @@
 				"windows"
 			],
 			"pushed": "2026-10-10T08:23:58Z",
-			"url": "https://github.com/sheranton/rtti-dump",
+			"url": "https://github.com/sheratonc/rtti-dump",
 			"releases": [
 				{
 					"tag": "v1.1.0",
 					"name": "rtti-dump v1.1.0",
 					"date": "2026-10-10T05:25:51Z",
-					"url": "https://github.com/sheranton/rtti-dump/releases/tag/v1.1.0",
+					"url": "https://github.com/sheratonc/rtti-dump/releases/tag/v1.1.0",
 					"summary": "New views of the class hierarchy."
 				},
 				{
 					"tag": "v1.0.0",
 					"name": "rtti-dump v1.0.0",
 					"date": "2026-10-10T01:33:03Z",
-					"url": "https://github.com/sheranton/rtti-dump/releases/tag/v1.0.0",
+					"url": "https://github.com/sheratonc/rtti-dump/releases/tag/v1.0.0",
 					"summary": "First tagged release, with prebuilt binaries for Windows x64, Linux x64 (statically linked) and macOS arm64."
 				}
 			]
@@ -173,20 +173,20 @@
 				"windows"
 			],
 			"pushed": "2026-10-10T08:23:56Z",
-			"url": "https://github.com/sheranton/pe-diff",
+			"url": "https://github.com/sheratonc/pe-diff",
 			"releases": [
 				{
 					"tag": "v1.1.0",
 					"name": "pe-diff v1.1.0",
 					"date": "2026-10-10T05:25:49Z",
-					"url": "https://github.com/sheranton/pe-diff/releases/tag/v1.1.0",
+					"url": "https://github.com/sheratonc/pe-diff/releases/tag/v1.1.0",
 					"summary": "Colored diffs and a visual README."
 				},
 				{
 					"tag": "v1.0.0",
 					"name": "pe-diff v1.0.0",
 					"date": "2026-10-10T01:33:02Z",
-					"url": "https://github.com/sheranton/pe-diff/releases/tag/v1.0.0",
+					"url": "https://github.com/sheratonc/pe-diff/releases/tag/v1.0.0",
 					"summary": "First tagged release, with prebuilt binaries for Windows x64, Linux x64 (statically linked) and macOS arm64."
 				}
 			]
@@ -207,20 +207,20 @@
 				"windows"
 			],
 			"pushed": "2026-10-10T08:23:55Z",
-			"url": "https://github.com/sheranton/pe-walker",
+			"url": "https://github.com/sheratonc/pe-walker",
 			"releases": [
 				{
 					"tag": "v1.1.0",
 					"name": "pe-walker v1.1.0",
 					"date": "2026-10-10T05:25:48Z",
-					"url": "https://github.com/sheranton/pe-walker/releases/tag/v1.1.0",
+					"url": "https://github.com/sheratonc/pe-walker/releases/tag/v1.1.0",
 					"summary": "Colored output and a visual README."
 				},
 				{
 					"tag": "v1.0.0",
 					"name": "pe-walker v1.0.0",
 					"date": "2026-10-10T01:33:00Z",
-					"url": "https://github.com/sheranton/pe-walker/releases/tag/v1.0.0",
+					"url": "https://github.com/sheratonc/pe-walker/releases/tag/v1.0.0",
 					"summary": "First tagged release, with prebuilt binaries for Windows x64, Linux x64 (statically linked) and macOS arm64."
 				}
 			]
@@ -244,7 +244,7 @@
 				"x86-64"
 			],
 			"pushed": "2026-10-10T08:23:53Z",
-			"url": "https://github.com/sheranton/unwind-map",
+			"url": "https://github.com/sheratonc/unwind-map",
 			"releases": []
 		}
 	]

@@ -11,7 +11,7 @@ interface Env {
 	GITHUB_TOKEN?: string;
 }
 
-const CACHE_KEY = "https://konkeri.uk/__cache/github/v4";
+const CACHE_KEY = "https://konkeri.uk/__cache/github/v5";
 const CACHE_SECONDS = 3600;
 /** The last complete live response, kept for a week as a better fallback than the build-time snapshot. */
 const LAST_GOOD_KEY = "https://konkeri.uk/__cache/github/last-good/v1";

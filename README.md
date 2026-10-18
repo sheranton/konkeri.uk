@@ -5,7 +5,7 @@
 The source of [konkeri.uk](https://konkeri.uk), my CV and project index. The page is laid out like an annotated binary: its sections are named like ELF sections (`.text` holds the tools, `.dynamic` the contact links), the table of contents is a `readelf -S` section table with each section's real byte offset in the page, and the header's background is the real first bytes of an ELF file.
 
 - **Live from GitHub.** The Worker reads my repositories and releases from the GitHub API, caches them at the edge for an hour, and falls back to the last complete copy, then to a saved snapshot, if the API is rate-limited.
-- **Fig. 1** is a real [unwind-map](https://github.com/sheranton/unwind-map) map of a stripped binary, traced in address order on load. Hovering a trace shows the function it recovered.
+- **Fig. 1** is a real [unwind-map](https://github.com/sheratonc/unwind-map) map of a stripped binary, traced in address order on load. Hovering a trace shows the function it recovered.
 - **Page map.** A Hilbert-curve minimap of the page tracks where you are, and the accent colour follows the section you're reading.
 - **Two themes,** paper and ink, chosen from the system setting or the toggle.
 - **Strict by default.** No frameworks, no client-side JavaScript dependencies, no inline scripts or styles, and a `default-src 'self'` Content Security Policy on every response.

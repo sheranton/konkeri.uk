@@ -241,7 +241,7 @@ h1, h2, h3, h4 { color: var(--fg); }
 	display: flex;
 	margin: 0 0 64px;
 	color: var(--fg);
-	font: 800 clamp(42px, 10.3vw, 145px)/0.82 var(--mono);
+	font: 800 clamp(47px, 11.6vw, 163px)/0.82 var(--mono);
 	font-stretch: 112.5%;
 	letter-spacing: -0.05em;
 }
@@ -564,7 +564,7 @@ figcaption { display: grid; gap: 6px; margin-top: 14px; color: var(--muted); fon
 	.theme { margin-left: auto; }
 	.sec { padding-top: 64px; }
 	.hero { padding-top: 28px; }
-	.name { margin-bottom: 44px; font-size: 12.6vw; }
+	.name { margin-bottom: 44px; font-size: 14.2vw; }
 	.ch i { margin-top: 12px; padding-top: 7px; font-size: 10px; }
 	.hexbg { right: 0; font-size: 10px; line-height: 19px; }
 	.hero-grid, .about { grid-template-columns: minmax(0, 1fr); gap: 40px; }

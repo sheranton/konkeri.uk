@@ -3,7 +3,7 @@
 
 import { writeFile } from "node:fs/promises";
 
-const user = "sheranton";
+const user = "sheratonc";
 const headers = {
 	"User-Agent": "konkeri.uk snapshot",
 	Accept: "application/vnd.github+json",
